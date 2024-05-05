@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
+    <title>Forms & more</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
@@ -19,6 +19,140 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
+
+    <form action="/server">
+      <div>
+        <label for="username">Enter your Username : </label>
+        <input type="text" id="username" placeholder="username" name="user" />
+      </div>
+
+      <div>
+        <label for="password">Enter password : </label>
+        <input
+          type="password"
+          id="password"
+          placeholder="password"
+          name="pass"
+        />
+      </div>
+
+      <div>
+        <label for="age">Enter Age : </label>
+        <input type="number" placeholder="age" id="age" name="age" />
+      </div>
+
+      <div>
+        <button type="submit">Submit</button>
+        <button type="button">Hello</button>
+        <button type="reset">Reset</button>
+      </div>
+
+      <div>
+        <input type="submit" value="click me" />
+      </div>
+    </form>
+
+    <hr />
+
+    <form action="https://www.google.com/search?q">
+      <div>
+        <label for="search_google">Search in Google : </label>
+        <input type="text" placeholder="Search" id="search_google" name="q" />
+        <span>
+          <button type="submit">Submit</button>
+        </span>
+      </div>
+    </form>
+
+    <hr />
+
+    <form action="">
+      <input type="checkbox" name="age" id="age" />
+      <label for="age">I am 18+</label>
+      <button type="submit">Submit</button>
+    </form>
+
+    <hr />
+
+    <form action="/server">
+      <!-- To group Name attribute should be same -->
+      <input type="radio" name="fruit" id="apple" value="apple" />
+      <label for="apple">Apple</label>
+      <input type="radio" name="fruit" id="mango" value="mango" />
+      <label for="mango">Mango</label>
+      <input type="radio" name="fruit" id="banana" value="banana" />
+      <label for="banana">Banana</label>
+
+      <br>
+
+      <input type="checkbox" name="Subjects" id="physics" value="phy"/>
+      <label for="physics">Physics</label>
+      <input type="checkbox" name="Subjects" id="chemistry" value="chem"/>
+      <label for="chemistry">Chemistry</Subjects>
+      <input type="checkbox" name="Subjects" id="maths" value="math"/>
+      <label for="maths">Maths</label>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <form action="/server">
+      <select name="profession" id="profession" >
+        <option>Select your option </option>
+        <option value="stu" selected>Student</option>
+        <option value="dev">Developer</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <form action="/server">
+      <label for="volume">volume</label>
+      <input type="range" name="vol" id="volume" min="0" max="100" step="10" value="0">
+      <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <form action="/server">
+      <label for="feedback">Please provide feedback</label>
+      <textarea name="text" id="feedback" placeholder="Write your Feedback"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <form action="/server">
+      <div>
+        <h2>Registration Form</h2>
+      </div>
+
+      <div>
+        <input type="text" name="fname" placeholder="First Name">
+        <input type="text" name="lname" placeholder="Last Name">
+      </div>
+
+      <div>
+        <label for="select_gender">Please select gender </label>
+        <select name="gender" id="select_gender">
+          <option value="m">Male</option>
+          <option value="f">Female</option>
+          <option value="o">Others</option>
+        </select>
+      </div>
+
+      <div>
+        Do you agree to all terms of service?
+        <input type="checkbox" name="tos_agree" id="tos_agree" checked value="yes">
+        <label for="tos_agree">Yes, I agree</label>
+      </div>
+
+      <div>
+        <button type="submit">Register</button>
+      </div>
+    </form>
 
     <script src="" async defer></script>
   </body>
