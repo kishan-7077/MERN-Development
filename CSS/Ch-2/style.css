@@ -1,0 +1,56 @@
+.para {
+  height: 200px;
+  width: 400px;
+  background-color: pink;
+  border: 5px solid black;
+  border-radius: 10px;
+  padding-left: 9px;
+  padding-top: 10px;
+  padding: auto;
+  margin-bottom: 25px;
+  margin-left: 15px;
+  margin: 10px 20px 30px 50px;
+}
+
+h1 {
+  border-width: 2px;
+  border-style: dashed;
+  border-color: green;
+}
+
+button {
+  border: 10px outset rgba(131, 131, 137, 0.881);
+  border-radius: 10px 100px / 120px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: ghostwhite;
+}
+button:hover {
+  background-color: bisque;
+}
+
+#outer {
+  height: 200px;
+  width: 70px;
+  border: 2px solid black;
+}
+
+.inner {
+  height: 50px;
+  width: 50px;
+  border: 2px solid black;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+#red {
+  background-color: red;
+}
+
+#yellow {
+  background-color: yellow;
+}
+
+#green {
+  background-color: green;
+}
