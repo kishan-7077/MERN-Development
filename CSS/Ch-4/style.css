@@ -1,0 +1,49 @@
+#q1 #container {
+  height: 400px;
+  width: 400px;
+  margin: 10px auto;
+  border: 2px solid black;
+  border-radius: 2%;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+
+  justify-content: space-evenly;
+}
+
+#container div {
+  height: 100px;
+  width: 100px;
+  border: 2px solid black;
+  border-radius: 10%;
+  background-color: gray;
+  align-content: flex-end;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+#q2 #container2 {
+  height: 50px;
+  width: 900px;
+  background-color: pink;
+  border: 2px solid black;
+  border-radius: 9px;
+
+  display: flex;
+  align-items: center;
+}
+
+#container2 div {
+  height: 50px;
+  width: 80px;
+  align-content: center;
+}
+
+p {
+  font-size: 24px;
+}
