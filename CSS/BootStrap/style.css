@@ -1,0 +1,18 @@
+.btn-group {
+  margin-bottom: 50px;
+}
+
+.card {
+  border: 2px solid rgba(0, 0, 0, 0.22);
+  padding: 7px 7px 7px;
+}
+
+.card img {
+  border: 5px solid black;
+  box-shadow: 4px 10px 5px rgba(0, 0, 0, 0.198);
+}
+
+.card {
+  height: 20rem;
+  width: 18rem;
+}
