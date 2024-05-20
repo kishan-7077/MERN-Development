@@ -135,6 +135,7 @@ a {
   margin-top: 0.25rem;
   height: 2rem;
   width: fit-content;
+  cursor: pointer;
 }
 .dark-badge {
   background-color: #000;
@@ -168,6 +169,7 @@ a {
 
 .nav-item {
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 @media (max-width: 1000px) {
@@ -177,12 +179,14 @@ a {
 }
 
 .card {
-  background-color: #232323;
   width: 150px;
   border-radius: 0.5rem;
   padding: 1rem;
   margin-left: 1.5rem;
   margin-top: 1rem;
+}
+.card:hover {
+  background-color: #232323;
 }
 
 .cards-container {
@@ -226,14 +230,81 @@ a {
 
 .album {
   width: 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.song-cover img {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 10px;
+}
+
+.song-details {
+  flex: 1;
+  align-self: flex-start;
+  margin-left: 0.22rem;
+}
+
+.song-details div {
+  margin-top: 0.5rem;
+}
+.song-details a:hover {
+  text-decoration: underline;
+}
+
+.song-details .song-name a {
+  font-size: 13.5px;
+}
+
+.song-details .singer-name a {
+  font-size: 13px;
+  opacity: 0.65;
+}
+.song-details .singer-name a:hover {
+  opacity: 1;
+}
+
+.add-to-likes i {
+  font-size: 0.75rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.add-to-likes i:hover {
+  opacity: 1;
 }
 
 .player {
   width: 50%;
 }
 
-.controls {
+.control {
+  display: flex;
   width: 25%;
+  justify-content: end;
+  align-items: center;
+  padding: 0 2rem 0 0;
+}
+.control img {
+  opacity: 0.5;
+  background-color: #fff;
+  height: 1.25rem;
+  margin-right: 0.75rem;
+}
+.control .options img:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.volume {
+  margin-top: -13px;
+  width: 3rem;
+}
+.volume::-webkit-slider-thumb {
+  height: 0.5rem;
+  width: 0.5rem;
 }
 
 .player-controls {
@@ -242,7 +313,56 @@ a {
   align-items: center;
 }
 
+#play {
+  opacity: 1;
+  height: 2rem;
+}
+#play:hover {
+  height: 2.1rem;
+}
 .player-control-icon {
   height: 1rem;
-  margin-right: 2rem;
+  margin-right: 1.75rem;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.player-control-icon:hover {
+  opacity: 1;
+}
+
+.playback-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar {
+  width: 70%;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.progress-bar::-webkit-slider-runnable-track {
+  background-color: #ddd;
+  border-radius: 100px;
+  height: 0.2rem;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  appearance: none;
+  height: 1rem;
+  width: 1rem;
+  background-color: #1bd760;
+  border-radius: 50%;
+  margin-top: -6px;
+}
+
+.curr-time {
+  margin-right: 0.75rem;
+}
+
+.tot-time {
+  margin-left: 0.75rem;
 }
