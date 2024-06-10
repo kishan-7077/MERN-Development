@@ -1,0 +1,45 @@
+#test {
+  background-color: pink;
+  height: 200px;
+  width: 400px;
+  margin: auto;
+}
+
+#test ul {
+  background-color: blue;
+}
+
+#test li {
+  background-color: greenyellow;
+}
+
+.todo {
+  height: auto;
+  width: 500px;
+  margin: 30px auto;
+  border: 2px solid #f8afa6;
+  text-align: center;
+  padding: 15px;
+  background-color: #f9f1f0;
+}
+#inptasks {
+  background-color: #fadcd9;
+}
+#taskList {
+  text-align: left;
+}
+
+.addtask {
+  display: flex;
+  align-items: center;
+}
+.addtask button {
+  margin-left: 5px;
+}
+#taskList li {
+  margin-bottom: 5px;
+}
+#taskList li button {
+  position: relative;
+  left: 50px;
+}

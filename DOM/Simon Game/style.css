@@ -1,0 +1,48 @@
+main {
+  height: 500px;
+  width: 400px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.container {
+  width: 400px;
+  height: 400px;
+
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+.boxes {
+  border: 9px solid black;
+  border-radius: 30px;
+  padding: 20px;
+  text-align: center;
+}
+
+.red {
+  background-color: #f85c70;
+}
+.teal {
+  background-color: #2b7c85;
+}
+.orange {
+  background-color: #ff9636;
+}
+.blue {
+  background-color: #2e8bc0;
+}
+
+.flash {
+  background-color: white;
+}
+
+.userflash {
+  background-color: green;
+}
+
+.wrongflash {
+  background-color: red;
+}
