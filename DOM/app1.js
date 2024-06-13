@@ -100,3 +100,41 @@ text.addEventListener("input", function () {
   p.innerText = text.value;
   console.log(text.value);
 });
+
+function savetoDb(data, success, faliure) {
+  let internetSpeed = Math.floor(Math.random() * 10);
+
+  if (internetSpeed > 4) {
+    success(data);
+  } else {
+    faliure();
+  }
+}
+
+savetoDb(
+  "kishan",
+  (data) => {
+    console.log("your data1 was saved : ", data);
+    savetoDb(
+      "kalpesh",
+      (data) => {
+        console.log("your data2 was saved : ", data);
+        savetoDb(
+          "chetna",
+          (data) => {
+            console.log("your data3 was saved : ", data);
+          },
+          () => {
+            console.log("weak connection data not saved");
+          }
+        );
+      },
+      () => {
+        console.log("weak connection data not saved");
+      }
+    );
+  },
+  () => {
+    console.log("weak connection data not saved");
+  }
+);
