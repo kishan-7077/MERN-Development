@@ -101,40 +101,81 @@ text.addEventListener("input", function () {
   console.log(text.value);
 });
 
-function savetoDb(data, success, faliure) {
-  let internetSpeed = Math.floor(Math.random() * 10);
+// function savetoDb(data, success, faliure) {
+//   let internetSpeed = Math.floor(Math.random() * 10);
 
-  if (internetSpeed > 4) {
-    success(data);
-  } else {
-    faliure();
-  }
+//   if (internetSpeed > 4) {
+//     success(data);
+//   } else {
+//     faliure();
+//   }
+// }
+
+// savetoDb(
+//   "kishan",
+//   (data) => {
+//     console.log("your data1 was saved : ", data);
+//     savetoDb(
+//       "kalpesh",
+//       (data) => {
+//         console.log("your data2 was saved : ", data);
+//         savetoDb(
+//           "chetna",
+//           (data) => {
+//             console.log("your data3 was saved : ", data);
+//           },
+//           () => {
+//             console.log("weak connection data not saved");
+//           }
+//         );
+//       },
+//       () => {
+//         console.log("weak connection data not saved");
+//       }
+//     );
+//   },
+//   () => {
+//     console.log("weak connection data not saved");
+//   }
+// );
+
+function savetoDb(data) {
+  return new Promise((resolve, reject) => {
+    let internetSpeed = Math.floor(Math.random() * 10);
+    if (internetSpeed > 4) {
+      resolve(data);
+    } else {
+      reject("weak connection, data not saved");
+    }
+  });
 }
 
-savetoDb(
-  "kishan",
-  (data) => {
-    console.log("your data1 was saved : ", data);
-    savetoDb(
-      "kalpesh",
-      (data) => {
-        console.log("your data2 was saved : ", data);
-        savetoDb(
-          "chetna",
-          (data) => {
-            console.log("your data3 was saved : ", data);
-          },
-          () => {
-            console.log("weak connection data not saved");
-          }
-        );
-      },
-      () => {
-        console.log("weak connection data not saved");
-      }
-    );
-  },
-  () => {
-    console.log("weak connection data not saved");
-  }
-);
+savetoDb("kishan")
+  .then((result) => {
+    console.log(result);
+    console.log("data1 saved. promise resolved.");
+    return savetoDb("hello world");
+  })
+  .then((result) => {
+    console.log(result);
+    console.log("data2 saved");
+    return savetoDb("my universe");
+  })
+  .then((result) => {
+    console.log(result);
+    console.log("data3 saved");
+  })
+  .catch((error) => {
+    console.log(error);
+    console.log("promise rejected");
+  });
+
+// savetoDb("kishan")
+//   .then((result) => {
+//     console.log("data saved");
+//     console.log(result);
+//   })
+//   .catch((error) => {
+//     console.log("data not saved");
+//     console.log(error);
+//   });
