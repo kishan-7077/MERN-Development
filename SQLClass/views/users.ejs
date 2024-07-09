@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users Info</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>List of Active Users</h1>
+    <form method="get" action="/user/new">
+      <button>Add new User!</button>
+    </form>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+      <% for( let data of datas ) { %>
+      <tr>
+        <td><%= data.id %></td>
+        <td><%= data.username %></td>
+        <td><%= data.email %></td>
+        <td>
+          <form method="get" action="/user/<%= data.id %>/edit">
+            <button>Edit Username</button>
+          </form>
+        </td>
+        <td>
+          <form method="post" action="/user/<%= data.id %>?_method=delete">
+            <button>Delete User</button>
+          </form>
+        </td>
+      </tr>
+
+      <% } %>
+    </table>
+  </body>
+</html>
