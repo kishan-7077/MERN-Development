@@ -18,11 +18,16 @@ app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-// login route
-app.get("/user/login", (req, res) => {
-  res.render("login.ejs");
+// landing page
+app.get("/", (req, res) => {
+  res.render("landing.ejs");
 });
-app.post("/home", (req, res) => {
+
+// signup route
+app.get("/signup", (req, res) => {
+  res.render("signup.ejs");
+});
+app.post("/signup/home", (req, res) => {
   let { fname, lname, email, password, gender } = req.body;
   let id = faker.string.uuid();
   let q = `INSERT INTO user VALUES ("${id}","${fname}","${lname}","${gender}","${email}","${password}")`;
@@ -30,17 +35,38 @@ app.post("/home", (req, res) => {
     connection.query(q, (err, result) => {
       if (err) throw err;
       console.log(result);
-      res.render("home.ejs", { id, fname });
+      let user = req.body;
+      res.render("home.ejs", { user });
     });
   } catch (err) {
     res.send("some error occured");
   }
 });
 
-// home route
-// app.get("/home", (req, res) => {
-//   res.send("home route");
-// });
+// login route
+app.get("/login", (req, res) => {
+  res.render("login.ejs");
+});
+app.post("/login/home", (req, res) => {
+  let { email, password } = req.body;
+  if (email === undefined || password === undefined) {
+    res.render("error.ejs");
+  } else {
+    let q = "SELECT * FROM user WHERE email = ? AND password = ?";
+    connection.query(q, [email, password], (err, result) => {
+      if (err) {
+        res.send("some error occurred");
+        return;
+      }
+      if (result.length === 0) {
+        res.send("wrong credentials");
+      } else {
+        let user = result[0];
+        res.render("home.ejs", { user });
+      }
+    });
+  }
+});
 
 app.listen(port, (req, res) => {
   console.log(`listening to port : ${port}`);
