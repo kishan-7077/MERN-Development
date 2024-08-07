@@ -5,6 +5,8 @@ const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const wrapAsync = require("./utils/wrapAsync.js");
+const ExpressError = require("./utils/ExpressError.js");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -12,10 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
-
-app.listen(8080, () => {
-  console.log("listening to port : 8080");
-});
 
 main()
   .then(() => {
@@ -64,11 +62,18 @@ app.get("/listings/:id", async (req, res) => {
 });
 
 // Create Route
-app.post("/listings", async (req, res) => {
-  const newListing = new Listing(req.body.listing);
-  await newListing.save();
-  res.redirect("/listings");
-});
+app.post(
+  "/listings",
+  wrapAsync(async (req, res, next) => {
+    try {
+      const newListing = new Listing(req.body.listing);
+      await newListing.save();
+      res.redirect("/listings");
+    } catch (err) {
+      next(err);
+    }
+  })
+);
 
 // Edit Route
 app.get("/listings/:id/edit", async (req, res) => {
@@ -90,4 +95,17 @@ app.delete("/listings/:id", async (req, res) => {
   let deletedListing = await Listing.findByIdAndDelete(id);
   console.log(deletedListing);
   res.redirect("/listings");
+});
+
+app.all("*", (req, res, next) => {
+  next(new ExpressError(404, "Page Not Found"));
+});
+
+app.use((err, req, res, next) => {
+  let { statusCode = 500, message = "something went wrong" } = err;
+  res.render("error.ejs", { message });
+});
+
+app.listen(8080, () => {
+  console.log("listening to port : 8080");
 });
