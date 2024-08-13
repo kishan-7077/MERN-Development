@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "ejs-mate": "^4.0.0"
+    "ejs-mate": "^4.0.0",
+    "express-session": "^1.18.0",
+    "express-sessions": "^1.0.1"
   }
 }
